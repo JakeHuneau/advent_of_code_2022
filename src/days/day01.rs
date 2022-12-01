@@ -7,12 +7,9 @@ pub fn solve() -> SolutionPair {
     let mut current_calorie_sum: usize = 0;
     read_to_string("input/day1").unwrap().lines().for_each(|s| {
         if s == "" {
-            if current_calorie_sum > fattest_elves[0] {
+            if fattest_elves.iter().any(|&elf| current_calorie_sum > elf) {
                 fattest_elves[0] = current_calorie_sum;
-            } else if current_calorie_sum > fattest_elves[1] {
-                fattest_elves[1] = current_calorie_sum;
-            } else if current_calorie_sum > fattest_elves[2] {
-                fattest_elves[2] = current_calorie_sum;
+                fattest_elves.sort();
             }
             current_calorie_sum = 0;
         } else {
