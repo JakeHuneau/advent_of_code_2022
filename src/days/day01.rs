@@ -1,6 +1,6 @@
 #![allow(unused)]
 use crate::{Solution, SolutionPair};
-use std::{fs::read_to_string};
+use std::fs::read_to_string;
 
 pub fn solve() -> SolutionPair {
     let mut fattest_elves: [usize; 3] = [0, 0, 0];
@@ -19,5 +19,8 @@ pub fn solve() -> SolutionPair {
             current_calorie_sum += s.parse::<usize>().unwrap();
         }
     });
-    (Solution::UInt(*fattest_elves.iter().max().unwrap()), Solution::UInt(fattest_elves.iter().sum::<usize>()))
+    (
+        Solution::UInt(*fattest_elves.iter().max().unwrap()),
+        Solution::UInt(fattest_elves.iter().sum::<usize>()),
+    )
 }
